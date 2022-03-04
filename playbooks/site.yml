@@ -51,6 +51,9 @@
     - include_role: 
         name: cluster-cli
       when: ldap|default(true)|bool
+    - include_role: 
+        name: nis-server
+      when: nis|default(true)|bool
 
 - hosts: compute
   become: true
@@ -157,6 +160,9 @@
   tasks: 
     - include_role: 
         name: hyperthreading
+    - include_role: 
+        name: nis-client
+      when: nis|default(true)|bool
 
 - hosts: bastion
   tasks: 
