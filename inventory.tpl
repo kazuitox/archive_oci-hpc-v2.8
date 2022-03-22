@@ -43,6 +43,7 @@ queue=${queue}
 monitoring=${monitoring}
 hyperthreading=${hyperthreading}
 ldap=${ldap}
+timezone=${timezone}
 autoscaling_monitoring=${autoscaling_monitoring}
 autoscaling_mysql_service=${autoscaling_mysql_service}
 monitoring_mysql_ip=${monitoring_mysql_ip}

@@ -82,6 +82,7 @@ variable "hyperthreading" { default = ##HT## }
 variable "unsupported" { default = ${unsupported} }
 variable "image_ocid" { default = "##IMAGE##" }
 variable "ldap" { default = ${ldap} }
+variable "timezone" { default = "${timezone}" }
 variable "autoscaling_monitoring" { default = ${autoscaling_monitoring} }
 
 

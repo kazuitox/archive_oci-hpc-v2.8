@@ -24,6 +24,7 @@
     - limits
     - mpi-hostfiles
     - etc-hosts
+    - timezone
 
 - hosts: bastion
   become: true
