@@ -83,6 +83,7 @@ variable "unsupported" { default = ${unsupported} }
 variable "image_ocid" { default = "##IMAGE##" }
 variable "ldap" { default = ${ldap} }
 variable "nis" { default = ${nis} }
+variable "timezone" { default = "${timezone}" }
 variable "autoscaling_monitoring" { default = ${autoscaling_monitoring} }
 
 

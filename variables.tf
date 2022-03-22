@@ -40,6 +40,7 @@ variable "ssh_cidr" { default = "0.0.0.0/0" }
 variable "slurm" { default = false }
 variable "ldap" { default = false } 
 variable "nis" { default = true } 
+variable "timezone" { default = "Asia/Tokyo" } 
 variable "spack" { default = false } 
 variable "bastion_ocpus" { default = 2} 
 variable "instance_pool_ocpus" { default = 2} 
