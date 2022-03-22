@@ -189,11 +189,8 @@ resource "null_resource" "cluster" {
       slurm = var.slurm,
       spack = var.spack,
       ldap = var.ldap,
-<<<<<<< HEAD
       nis = var.nis,
-=======
       timezone = var.timezone,
->>>>>>> feature-timezone
       bastion_block = var.bastion_block, 
       scratch_nfs_type = local.scratch_nfs_type,
       bastion_mount_ip = local.bastion_mount_ip,
