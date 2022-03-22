@@ -38,6 +38,7 @@ resource "local_file" "inventory" {
     slurm = var.slurm,
     spack = var.spack,
     ldap = var.ldap,
+    nis = var.nis,
     bastion_block = var.bastion_block,
     scratch_nfs_type = local.scratch_nfs_type,
     bastion_mount_ip = var.bastion_mount_ip,

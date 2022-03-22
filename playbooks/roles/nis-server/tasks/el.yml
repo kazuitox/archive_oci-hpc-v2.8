@@ -1,0 +1,37 @@
+---
+- name: Install NIS Server
+  become: true
+  yum:
+    name: ypserv
+    state: latest
+    
+- name: Install NIS Client
+  become: true
+  yum:
+    name: ypbind
+    state: latest
+
+- name: Setup NIS Domain Name
+  become: true
+  lineinfile: 
+    dest=/etc/sysconfig/network
+    line=NISDOMAIN=nis.oci.com
+
+- name: start NIS Server
+  become: true
+  systemd:
+     name: "{{ item }}"
+     state: started
+     enabled: yes
+  with_items:
+   - ypserv
+   - ypxfrd
+   - yppasswdd
+
+- name: Run yp-init
+  become: true
+  shell: echo | /usr/lib64/yp/ypinit -m
+
+- name: Run authconfig Command
+  become: true
+  shell: authconfig --enablenis --nisdomain=nis.oci.com --nisserver="{{ hostvars[groups['bastion'][0]]['ansible_fqdn'].split('.')[0] }}" --enablemkhomedir --update

@@ -90,6 +90,9 @@
     - include_role: 
         name: hyperthreading
       when: not hyperthreading|default(true)|bool 
+    - include_role: 
+        name: nis-client
+      when: nis|default(true)|bool
 - hosts: compute
   become: true
   tasks:

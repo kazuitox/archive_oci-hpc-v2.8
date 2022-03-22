@@ -40,6 +40,7 @@ nfs_source_IP=${nfs_source_IP}
 nfs_source_path=${nfs_source_path}
 nfs_options=${nfs_options}
 ldap=${ldap}
+nis=${nis}
 queue=${queue}
 hyperthreading=${hyperthreading}
 instance_type=${instance_type}
