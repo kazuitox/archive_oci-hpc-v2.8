@@ -3,3 +3,8 @@
   become: true
   command: "scontrol update nodename={{ cluster_name }}-node-{{groups['compute'].index(inventory_hostname)+1}} state=future reason=terminating"
   ignore_errors: force
+- name: slurm reconfigure
+  become: true
+  command: "scontrol reconfigure"
+  ignore_errors: force
+  run_once: true
