@@ -169,3 +169,9 @@
   retries: 10
   delay: 5
   until: result is not failed
+
+- name: slurm reconfigure
+  become: true
+  command: "scontrol reconfigure"
+  ignore_errors: force
+  run_once: true
