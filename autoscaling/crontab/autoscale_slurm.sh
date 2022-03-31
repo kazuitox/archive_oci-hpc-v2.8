@@ -301,7 +301,7 @@ try:
             print "Cluster "+clusterName+" won't be created, it would go over the total number of nodes limit"
         else:
             current_nodes[queue][instance_type]+=nodes
-            print "Creating cluster "+clusterName+"with "+str(nodes)+" nodes"
+            print "Creating cluster "+clusterName+" with "+str(nodes)+" nodes"
             subprocess.Popen([path+'/create_cluster.sh',str(nodes),clusterName,instance_type,queue,jobID,user])
             time.sleep(5)
     
