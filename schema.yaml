@@ -27,6 +27,7 @@ variableGroups:
       - ${cluster_name}
       - ${ldap}
       - ${nis}
+      - ${jitter}
   - title: "Headnode options"
     variables:
       - ${bastion_ad}
@@ -609,6 +610,11 @@ variables:
     title: "Configure NIS Master as bastion"
     description: "The bastion will be configured as NIS Master and the compute nodes will be configured as NIS Client."
     default: true
+  jitter:
+    type: boolean
+    title: "Enable monitoring service for compute nodes"
+    description: "Start monitoring services (oswatcher, oracle-cloud-agent, oracle-cloud-agent-updater, unified-monitoring-agent)."
+    default: false
   cluster_name:
     title: "Name of the cluster"
     description: "Custom cluster name"

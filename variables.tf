@@ -160,3 +160,7 @@ variable "admin_password" {
   default = "Monitor2021!"
 }
 
+variable "jitter" { 
+  type= bool
+  default = true
+} 

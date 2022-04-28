@@ -51,7 +51,8 @@ resource "local_file" "inventory" {
     hyperthreading=var.hyperthreading,
     instance_type=var.instance_type,
     autoscaling_monitoring = var.autoscaling_monitoring,
-    unsupported = var.unsupported
+    unsupported = var.unsupported,
+    jitter = var.jitter
     })
   filename   = "${local.bastion_path}/inventory"
 }

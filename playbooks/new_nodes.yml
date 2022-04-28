@@ -11,11 +11,20 @@
 
 - hosts: compute
   become: true
+  tasks: 
+    - include_role: 
+        name: disable-jitter
+      when: not jitter|default(false)|bool
+    - include_role:
+        name: oci-cloud-agent
+      when: jitter|default(false)|bool
+
+- hosts: compute
+  become: true
   vars: 
     destroy: false
   gather_facts: true
   roles: 
-    - oci-cloud-agent
     - packages
     - oci-legacy
     - firewall 
@@ -94,6 +103,7 @@
     - include_role: 
         name: nis-client
       when: nis|default(true)|bool
+
 - hosts: compute
   become: true
   tasks:
@@ -142,3 +152,4 @@
       when: slurm|default(false)|bool
 #    - include_role: 
 #        name: telegraf
+

@@ -45,3 +45,4 @@ timezone=${timezone}
 queue=${queue}
 hyperthreading=${hyperthreading}
 instance_type=${instance_type}
+jitter=${jitter}

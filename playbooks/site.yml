@@ -1,4 +1,3 @@
-
 - hosts: compute
   become: true
   vars: 
@@ -7,6 +6,16 @@
   roles: 
     - hostname
 
+- hosts: compute
+  become: true
+  tasks: 
+    - include_role: 
+        name: disable-jitter
+      when: not jitter|default(false)|bool
+    - include_role: 
+        name: oci-cloud-agent
+      when: jitter|default(false)|bool
+
 - hosts: all
   become: true
   vars: 
@@ -14,7 +23,6 @@
     initial: true
   gather_facts: true
   roles: 
-    - oci-cloud-agent
     - packages
     - oci-legacy
     - firewall 
@@ -25,6 +33,11 @@
     - mpi-hostfiles
     - etc-hosts
     - timezone
+
+- hosts: bastion
+  become: true
+  roles:
+    - oci-cloud-agent
 
 - hosts: bastion
   become: true

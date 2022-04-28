@@ -1,0 +1,14 @@
+---
+- name: Stop jitter services
+  become: yes
+  systemd:
+    state: stopped
+    enabled: no
+    name: '{{ item }}'
+  with_items:
+    - unified-monitoring-agent_config_downloader.timer
+    - unified-monitoring-agent_restarter.path
+    - oswatcher.service
+    - oracle-cloud-agent-updater.service
+    - oracle-cloud-agent.service
+    - unified-monitoring-agent.service
