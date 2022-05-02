@@ -46,3 +46,4 @@ queue=${queue}
 hyperthreading=${hyperthreading}
 instance_type=${instance_type}
 jitter=${jitter}
+ssh_hostbased_auth=${ssh_hostbased_auth}

@@ -103,6 +103,9 @@
     - include_role: 
         name: nis-client
       when: nis|default(true)|bool
+    - include_role:
+        name: ssh-hostbased-auth
+      when: ssh_hostbased_auth|default(true)|bool
 
 - hosts: compute
   become: true

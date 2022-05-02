@@ -209,7 +209,8 @@ resource "null_resource" "cluster" {
       monitoring_mysql_ip = var.autoscaling_monitoring && var.autoscaling_mysql_service ? oci_mysql_mysql_db_system.monitoring_mysql_db_system[0].ip_address : "localhost",
       admin_password = var.admin_password,
       admin_username = var.autoscaling_mysql_service ? var.admin_username : "root",
-      jitter = var.jitter
+      jitter = var.jitter,
+      ssh_hostbased_auth = var.ssh_hostbased_auth
       })
 
     destination   = "/opt/oci-hpc/playbooks/inventory"
@@ -319,7 +320,8 @@ resource "null_resource" "cluster" {
       hyperthreading = var.hyperthreading,
       unsupported = var.unsupported,
       autoscaling_monitoring = var.autoscaling_monitoring,
-      jitter = var.jitter
+      jitter = var.jitter,
+      ssh_hostbased_auth = var.ssh_hostbased_auth
       })
 
     destination   = "/opt/oci-hpc/autoscaling/tf_init/variables.tf"

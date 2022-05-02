@@ -27,6 +27,7 @@ variableGroups:
       - ${cluster_name}
       - ${ldap}
       - ${nis}
+      - ${ssh_hostbased_auth}
       - ${jitter}
   - title: "Headnode options"
     variables:
@@ -609,6 +610,11 @@ variables:
     type: boolean
     title: "Configure NIS Master as bastion"
     description: "The bastion will be configured as NIS Master and the compute nodes will be configured as NIS Client."
+    default: true
+  ssh_hostbased_auth:
+    type: boolean
+    title: "Enable SSH host-based authentication"
+    description: "Enable SSH host-based authentication for inter-node authentication of compute nodes."
     default: true
   jitter:
     type: boolean

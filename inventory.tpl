@@ -51,3 +51,4 @@ monitoring_mysql_ip=${monitoring_mysql_ip}
 admin_password = ${admin_password}
 admin_username = ${admin_username}
 jitter = ${jitter}
+ssh_hostbased_auth = ${ssh_hostbased_auth}

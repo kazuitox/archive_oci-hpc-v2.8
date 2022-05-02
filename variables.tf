@@ -164,3 +164,7 @@ variable "jitter" {
   type= bool
   default = true
 } 
+variable "ssh_hostbased_auth" { 
+  type= bool
+  default = true
+} 

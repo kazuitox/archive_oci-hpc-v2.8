@@ -52,7 +52,8 @@ resource "local_file" "inventory" {
     instance_type=var.instance_type,
     autoscaling_monitoring = var.autoscaling_monitoring,
     unsupported = var.unsupported,
-    jitter = var.jitter
+    jitter = var.jitter,
+    ssh_hostbased_auth = var.ssh_hostbased_auth
     })
   filename   = "${local.bastion_path}/inventory"
 }

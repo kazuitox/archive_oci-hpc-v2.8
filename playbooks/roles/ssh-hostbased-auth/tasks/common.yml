@@ -1,0 +1,44 @@
+- name: change HostbasedAuthentication /etc/ssh/sshd_config
+  become: true
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: 'HostbasedAuthentication.*'
+    line: "HostbasedAuthentication yes"
+
+- name: add HostbasedAuthentication to /etc/ssh/ssh_config
+  become: true
+  lineinfile:
+    dest: '/etc/ssh/ssh_config'
+    insertafter: "        GSSAPIAuthentication yes"
+    line: "        HostbasedAuthentication yes"
+
+- name: add EnableSSHKeysign to /etc/ssh/ssh_config
+  become: true
+  lineinfile:
+    dest: '/etc/ssh/ssh_config'
+    insertafter: "        GSSAPIAuthentication yes"
+    line: "        EnableSSHKeysign yes"
+
+- name: create /etc/hsots.equiv file
+  become: true
+  template:
+    src: templates/host_equiv.j2
+    dest: /etc/hosts.equiv
+    mode: '0644'
+
+- name: generate ssh_known_hosts script
+  become: true
+  template:
+    src: templates/get_ssh_key.j2
+    dest: /tmp/get_ssh_key.sh
+    mode: '0744'
+
+- name: run ssh_known_hosts script
+  become: true
+  shell: /tmp/get_ssh_key.sh
+
+- name: restart sshd
+  become: true
+  systemd:
+    name: sshd.service
+    state: restarted
